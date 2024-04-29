@@ -1,16 +1,16 @@
 # JKFLIPFLOP-USING-IF-ELSE
 
-**AIM:** 
+*AIM :* 
 
 To implement  JK flipflop using verilog and validating their functionality using their functional tables
 
-**SOFTWARE REQUIRED:**
+*SOFTWARE REQUIRED :*
 
 Quartus prime
 
-**THEORY**
+*THEORY* :
 
-**JK Flip-Flop**
+*JK Flip-Flop* :
 
 JK flip-flop is the modified version of SR flip-flop. It operates with only positive clock transitions or negative clock transitions. The circuit diagram of JK flip-flop is shown in the following figure.
 
@@ -32,17 +32,69 @@ By using three variable K-Map, we can get the simplified expression for next sta
 
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
 
-**Procedure**
+*Procedure* :
+step-1 : Go to quartus software.
 
-/* write all the steps invloved */
+step-2 : Set new environment.
 
-**PROGRAM**
+step-3 : Type the code to implement SR flipflop using verilog and validating their functionality using their functional tables.
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+step-4 :  Run the program.
 
-**RTL LOGIC FOR FLIPFLOPS**
+step-5 : Give inputs in the waveform table .
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
+step-6 : Run the program.
 
-**RESULTS**
+*PROGRAM* :
+ Program for flipflops and verify its truth table in quartus using Verilog programming.
+Developed by : Dharsan R
+
+RegisterNumber : 212223100003
+```
+
+module JKFLIPFLOP(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
+
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+   begin
+	   if(j==0 && k==0)
+		   begin
+			q<=q;
+			qb<=qb;
+			end
+		else if(j!=k)
+		   begin
+			q<=j;
+			qb<=k;
+			end
+		else if(j==1 && k==1)
+		    begin
+			 q<=~q;
+			 qb<=~qb;
+			 end
+	end
+end	
+endmodule
+```
+
+*RTL LOGIC FOR FLIPFLOPS* : 
+
+![image](https://github.com/sanjayashwinP/JKFLIPFLOP-USING-IF-ELSE/assets/147473265/cdb48b7a-3a10-4724-abce-8ab435578f1a)
+
+*TIMING DIGRAMS FOR FLIP FLOPS* :
+
+![image](https://github.com/sanjayashwinP/JKFLIPFLOP-USING-IF-ELSE/assets/147473265/3ab1d702-5bc5-4375-b47c-db81d6d20859)
+
+*RESULTS* :
+
+Thus,the code executed successfully.
